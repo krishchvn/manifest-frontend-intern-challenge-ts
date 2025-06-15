@@ -68,9 +68,7 @@ const ButtonsShowcase: React.FC = () => (
 				<RowHead>HOVER</RowHead>
 			</div>
 
-			{/* right column: header row + button matrix */}
 			<div className='flex-1 '>
-				{/* column headings */}
 				<div className='px-4 pb-2 md:pb-3 grid grid-cols-4 gap-x-2  '>
 					<ColHead>ACTIVE</ColHead>
 					<ColHead>DISABLED</ColHead>
@@ -78,7 +76,6 @@ const ButtonsShowcase: React.FC = () => (
 					<ColHead>INVERTED</ColHead>
 				</div>
 
-				{/* 4 × 4 matrix with dashed border */}
 				<div
 					className='
             grid grid-cols-4
@@ -87,7 +84,6 @@ const ButtonsShowcase: React.FC = () => (
             p-4 md:p-6 rounded-lg
           '
 				>
-					{/* ─── PRIMARY ROW ─── */}
 					<Button className='bg-mint text-sugar'>Continue</Button>
 					<Button
 						disabled
@@ -98,7 +94,6 @@ const ButtonsShowcase: React.FC = () => (
 					<Button className='bg-mint9 text-sugar'>Continue</Button>
 					<div />
 
-					{/* ─── SECONDARY ROW ─── */}
 					<Button variant='secondary'>Continue</Button>
 					<Button variant='secondary' disabled>
 						Continue
@@ -106,7 +101,6 @@ const ButtonsShowcase: React.FC = () => (
 					<Button variant='secondary'>Continue</Button>
 					<div />
 
-					{/* ─── TEXT ROW ─── */}
 					<Button variant='text'>Continue</Button>
 					<Button variant='text' disabled>
 						Continue
@@ -116,7 +110,6 @@ const ButtonsShowcase: React.FC = () => (
 					</Button>
 					<div />
 
-					{/* ─── HOVER ROW ─── */}
 					<Button className=' bg-mint text-sugar hover:shadow-coco'>
 						Continue
 					</Button>

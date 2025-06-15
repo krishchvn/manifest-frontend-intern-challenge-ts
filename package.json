@@ -8,9 +8,11 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"test": "jest --watch"
+		"test": "vitest",
+		"test:ui": "vitest --ui"
 	},
 	"dependencies": {
+		"@babel/preset-react": "^7.27.1",
 		"clsx": "^2.1.1",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0"
@@ -38,5 +40,15 @@
 		"typescript-eslint": "^8.30.1",
 		"vite": "^6.3.5",
 		"vitest": "^3.2.3"
+	},
+	"babel": {
+		"presets": [
+			"@babel/react",
+			"@babel/env"
+		],
+		"plugins": [
+			"@babel/proposal-class-properties",
+			"@babel/plugin-transform-runtime"
+		]
 	}
 }

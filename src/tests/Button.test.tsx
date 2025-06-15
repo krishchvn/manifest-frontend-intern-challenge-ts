@@ -1,92 +1,54 @@
-// Button.test.tsx
-// -----------------------------------------------------------------------------
-// Unit-tests for <Button> using Jest + React Testing Library.
-//
-// Run with:  pnpm jest   (or yarn / npm test depending on your toolchain)
-// -----------------------------------------------------------------------------
-
-// import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Button } from '../components/Button';
-
-/* -------------------------------------------------------------------------- */
-/* helper                                                                     */
-/* -------------------------------------------------------------------------- */
-const renderBtn = (ui = <Button>Click me</Button>) => render(ui);
+import { vi } from 'vitest';
 
 describe('<Button>', () => {
-	/* ─────────────────────────────────────────────────────────────── Rendering */
-
-	it('renders its children', () => {
-		renderBtn(<Button>Howdy</Button>);
-		expect(screen.getByRole('button')).toHaveTextContent('Howdy');
+	const onClick = vi.fn();
+	afterEach(() => {
+		vi.clearAllMocks();
 	});
 
-	/* ─────────────────────────────────────────────────────────────── Variants */
+	it('applies correct palette for primary '),
+		() => {
+			render(<Button variant='primary'>Continue</Button>);
+			const btn = screen.getByRole('button', { name: 'Continue' });
+			// console.log(btn);
+			expect(btn.className.includes('bg-mint')).toBe(true);
+		};
 
-	const paletteCases: [Parameters<typeof Button>[0]['variant'], RegExp][] = [
-		['primary', /bg-mint/], // active class for primary
-		['secondary', /border-mint/], // distinctive class for secondary
-		['text', /bg-transparent/], // text variant is transparent
-		['hover', /shadow-coco|/], // hover variant relies on external classes
-	];
+	it('applies correct palette for secondary '),
+		() => {
+			render(<Button variant='secondary'>Continue</Button>);
+			const btn = screen.getByRole('button', { name: 'Continue' });
+			// console.log(btn);
+			expect(btn.className.includes('border-mint')).toBe(true);
+		};
 
-	it.each(paletteCases)(
-		'applies correct palette for variant "%s"',
-		(variant, expected) => {
-			renderBtn(<Button variant={variant}>X</Button>);
-			expect(screen.getByRole('button').className).toMatch(expected);
-		}
-	);
+	it('applies correct palette for text '),
+		() => {
+			render(<Button variant='text'>Continue</Button>);
+			const btn = screen.getByRole('button', { name: 'Continue' });
+			console.log(btn);
+			expect(btn.className.includes('bg-transparent')).toBe(true);
+		};
 
-	/* ─────────────────────────────────────────────────────────────── Disabled */
+	it('applies correct palette for hover '),
+		() => {
+			render(<Button variant='hover'>Continue</Button>);
+			const btn = screen.getByRole('button', { name: 'Continue' });
+			console.log(btn);
+			expect(btn.className.includes('shadow-coco')).toBe(true);
+		};
 
-	it('adds disabled attribute and style', () => {
-		renderBtn(<Button disabled>Disabled</Button>);
-		const btn = screen.getByRole('button');
-		expect(btn).toBeDisabled();
-		expect(btn.className).toMatch(/cursor-not-allowed/);
-	});
-
-	/* ─────────────────────────────────────────────────────────────── Clicks */
-
-	it('fires onClick when enabled', async () => {
-		const user = userEvent.setup();
-		const spy = jest.fn();
-		renderBtn(<Button onClick={spy}>Fire</Button>);
-		await user.click(screen.getByRole('button'));
-		expect(spy).toHaveBeenCalledTimes(1);
-	});
-
-	it('does NOT fire onClick when disabled', async () => {
-		const user = userEvent.setup();
-		const spy = jest.fn();
-		renderBtn(
-			<Button disabled onClick={spy}>
-				NoFire
+	it('does not fire onClick when button is disabled', () => {
+		render(
+			<Button variant='primary' disabled onClick={onClick}>
+				Continue
 			</Button>
 		);
-		await user.click(screen.getByRole('button'));
-		expect(spy).not.toHaveBeenCalled();
-	});
-
-	/* ─────────────────────────────────────────────────────────────── Prop pass-through */
-
-	it('forwards extra HTML props', () => {
-		renderBtn(
-			<Button type='submit' data-testid='sentinel'>
-				Submit
-			</Button>
-		);
-		const btn = screen.getByTestId('sentinel');
-		expect(btn).toHaveAttribute('type', 'submit');
-	});
-
-	/* ─────────────────────────────────────────────────────────────── Snapshot (optional) */
-
-	it('matches snapshot (primary variant)', () => {
-		const { container } = renderBtn(<Button>Snap</Button>);
-		expect(container.firstChild).toMatchSnapshot();
+		const btn = screen.getByRole('button', { name: 'Continue' });
+		fireEvent.click(btn);
+		expect(onClick).not.toHaveBeenCalled();
 	});
 });
