@@ -1,10 +1,13 @@
+import View from './components/View';
+
 function App() {
-  return (
-    <>
-     <h1>Manifest Frontend Intern Code challenge 2025</h1>
-     <p>Show off your components here</p>
-    </>
-  )
+	return (
+		<div className=''>
+			<div className='py-8 px-8'>
+				<View />
+			</div>
+		</div>
+	);
 }
 
-export default App
+export default App;
