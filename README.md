@@ -1,6 +1,6 @@
 | Desktop Showcase (md↑)          | Storybook Docs                      |
 | ------------------------------- | ----------------------------------- |
-| ![grid](docs/DesktopButton.png) | ![storybook](docs/MobileButton.png) |
+| ![grid](/src/docs/DesktopButton.png) | ![storybook](/src/docs/MobileButton.png) |
 
 ## Tech Stack Used:
 
