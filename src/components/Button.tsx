@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: Variant;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	disabled,
 	className,
@@ -134,4 +134,5 @@ const ButtonsShowcase: React.FC = () => (
 	</div>
 );
 
-export default ButtonsShowcase;
+export { ButtonsShowcase as default };
+export type { ButtonProps };
