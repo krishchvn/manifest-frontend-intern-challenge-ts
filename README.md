@@ -1,3 +1,23 @@
+| Desktop Showcase (md↑)          | Storybook Docs                      |
+| ------------------------------- | ----------------------------------- |
+| ![grid](docs/DesktopButton.png) | ![storybook](docs/MobileButton.png) |
+
+## Tech Stack Used:
+
+React + Vite + Ts Tailwind Vitest Storybook
+
+## How To Run
+
+git clone https://github.com/krishchvn/manifest-frontend-intern-challenge-ts.git \ cd manifest-frontend-intern-challenge-ts \ npm install \ npm run dev
+
+### To run tests
+
+cd src/tests \ npm test
+
+### For storybook
+
+npx storybook@latest init \ npm run storybook
+
 # Manifest Frontend Intern Code challenge
 
 ## Scenario:
