@@ -1,4 +1,4 @@
-| Desktop Showcase (md↑)          | Storybook Docs                      |
+| Desktop Buttons (md↑)          | Mobile Buttons                 |
 | ------------------------------- | ----------------------------------- |
 | ![grid](/src/docs/DesktopButton.png) | ![storybook](/src/docs/MobileButton.png) |
 
