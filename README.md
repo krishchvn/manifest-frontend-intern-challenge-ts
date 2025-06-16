@@ -4,19 +4,19 @@
 
 ## Tech Stack Used:
 
-React + Vite + Ts
-Tailwind 
-Vitest 
-Storybook
+React + Vite + Ts  
+Tailwind   
+Vitest   
+Storybook  
 
 ## How To Run
-git clone https://github.com/krishchvn/manifest-frontend-intern-challenge-ts.git  
-cd manifest-frontend-intern-challenge-ts 
-npm install 
-npm run dev
+git clone https://github.com/krishchvn/manifest-frontend-intern-challenge-ts.git    
+cd manifest-frontend-intern-challenge-ts   
+npm install   
+npm run dev  
 
 ### To run tests
-cd src/tests 
+cd src/tests  
 npm test
 
 ### For storybook
